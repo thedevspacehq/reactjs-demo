@@ -36,47 +36,64 @@ import Card from "./components/Card";
 
 // export default App;
 
+// export default function App() {
+//   const articles = [
+//     {
+//       id: 1,
+//       title: "Introduction to Next.js",
+//       description:
+//         "Learn how to build scalable and performant websites using Next.js.",
+//       imageUrl: "https://via.placeholder.com/400x200",
+//       link: "/",
+//     },
+//     {
+//       id: 2,
+//       title: "Tailwind CSS Tips and Tricks",
+//       description:
+//         "Enhance your CSS workflow with these advanced Tailwind techniques.",
+//       imageUrl: "https://via.placeholder.com/400x200",
+//       link: "/",
+//     },
+//     {
+//       id: 3,
+//       title: "Server-side Rendering with React",
+//       description:
+//         "Understand the benefits and challenges of server-side rendering with React.",
+//       imageUrl: "https://via.placeholder.com/400x200",
+//       link: "/",
+//     },
+//   ];
+//   return (
+//     <div className="container mx-auto px-4 py-8">
+//       <h1 className="text-4xl font-bold mb-8 text-center">Blog Articles</h1>
+//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+//         {articles.map((article) => (
+//           <Card
+//             key={article.id}
+//             imageUrl={article.imageUrl}
+//             title={article.title}
+//             description={article.description}
+//             link={article.link}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
 export default function App() {
-  const articles = [
-    {
-      id: 1,
-      title: "Introduction to Next.js",
-      description:
-        "Learn how to build scalable and performant websites using Next.js.",
-      imageUrl: "https://via.placeholder.com/400x200",
-      link: "/",
-    },
-    {
-      id: 2,
-      title: "Tailwind CSS Tips and Tricks",
-      description:
-        "Enhance your CSS workflow with these advanced Tailwind techniques.",
-      imageUrl: "https://via.placeholder.com/400x200",
-      link: "/",
-    },
-    {
-      id: 3,
-      title: "Server-side Rendering with React",
-      description:
-        "Understand the benefits and challenges of server-side rendering with React.",
-      imageUrl: "https://via.placeholder.com/400x200",
-      link: "/",
-    },
-  ];
+  const title = "Introduction to Next.js";
+  const description =
+    "Learn how to build scalable and performant websites using Next.js.";
+  const imageUrl = "https://via.placeholder.com/400x200";
+  const link = "/";
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8 text-center">Blog Articles</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {articles.map((article) => (
-          <Card
-            key={article.id}
-            imageUrl={article.imageUrl}
-            title={article.title}
-            description={article.description}
-            link={article.link}
-          />
-        ))}
-      </div>
-    </div>
+    <Card
+      imageUrl={imageUrl}
+      title={title}
+      description={description}
+      link={link}
+    />
   );
 }
