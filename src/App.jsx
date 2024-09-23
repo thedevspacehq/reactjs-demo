@@ -2,7 +2,9 @@
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
 // import "./App.css";
-import Card from "./components/Card";
+// import Card from "./components/Card";
+// import Button from "./components/Button";
+import AlertButton from "./components/AlertButton";
 // import Navbar from "./components/Navbar";
 
 // function App() {
@@ -82,19 +84,17 @@ import Card from "./components/Card";
 // }
 
 export default function App() {
-  const title = "Introduction to Next.js";
-  const description =
-    "Learn how to build scalable and performant websites using Next.js.";
-  const imageUrl = "https://via.placeholder.com/400x200";
-  const link = "/";
-
   return (
-    <Card imageUrl={imageUrl} title={title} link={link}>
-      Lorem ipsum dolor sit amet,{" "}
-      <span className="font-bold">consectetur adipisicing elit</span>. Nisi
-      pariatur cupiditate, blanditiis dolorum sapiente distinctio ratione quos
-      facere eligendi laudantium numquam quaerat vero quia animi voluptatum?
-      Atque porro labore doloremque.
-    </Card>
+    <div
+      onContextMenu={(event) => {
+        event.preventDefault();
+        alert("Hello, World!");
+      }}
+      className="w-20">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia ab
+      provident ipsa assumenda deleniti vel culpa quasi nobis impedit doloribus,
+      et numquam atque, reprehenderit expedita rerum odio sapiente nesciunt
+      illo.
+    </div>
   );
 }
