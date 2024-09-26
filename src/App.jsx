@@ -1,11 +1,12 @@
-// import { useState } from "react";
+import { useState } from "react";
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
 // import "./App.css";
 // import Card from "./components/Card";
 // import Button from "./components/Button";
-import AlertButton from "./components/AlertButton";
+// import AlertButton from "./components/AlertButton";
 // import Navbar from "./components/Navbar";
+import Counter from "./components/Counter";
 
 // function App() {
 //   const [count, setCount] = useState(0);
@@ -85,16 +86,9 @@ import AlertButton from "./components/AlertButton";
 
 export default function App() {
   return (
-    <div
-      onContextMenu={(event) => {
-        event.preventDefault();
-        alert("Hello, World!");
-      }}
-      className="w-20">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia ab
-      provident ipsa assumenda deleniti vel culpa quasi nobis impedit doloribus,
-      et numquam atque, reprehenderit expedita rerum odio sapiente nesciunt
-      illo.
-    </div>
+    <>
+      <Counter />
+      <Counter />
+    </>
   );
 }
