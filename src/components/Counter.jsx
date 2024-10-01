@@ -1,20 +1,44 @@
-import { useState } from "react";
+import { useReducer } from "react";
 
-function Display({ count }) {
-  return <p>Count: {count}</p>;
+function countReducer(count, action) {
+  if (action.type === "add") {
+    return count + action.num;
+  } else if (action.type === "subtract") {
+    return count - action.num;
+  } else if (action.type === "reset") {
+    return 0;
+  } else {
+    throw Error("Unknown action: " + action.type);
+  }
 }
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
+  const [count, dispatch] = useReducer(countReducer, 0);
+
+  function handleAdd() {
+    dispatch({
+      type: "add",
+      num: 2,
+    });
+  }
+  function handleSubtract() {
+    dispatch({
+      type: "subtract",
+      num: 3,
+    });
+  }
+  function handleReset() {
+    dispatch({
+      type: "reset",
+    });
+  }
+
   return (
-    <div className="border rounded-md p-4 m-4">
-      <Display count={count} />
-      <button
-        onClick={() => {
-          setCount(count + 1);
-        }}>
-        Add
-      </button>
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={handleAdd}>Add 2</button>
+      <button onClick={handleSubtract}>Subtract 3</button>
+      <button onClick={handleReset}>Reset</button>
     </div>
   );
 }
