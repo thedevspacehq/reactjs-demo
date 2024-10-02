@@ -1,5 +1,10 @@
-import Counter from "./components/Counter";
+import Profile from "./components/Profile";
+import { UserProvider } from "./contexts/UserContext";
 
 export default function App() {
-  return <Counter />;
+  return (
+    <UserProvider>
+      <Profile />
+    </UserProvider>
+  );
 }
