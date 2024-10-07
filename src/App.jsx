@@ -1,28 +1,14 @@
-// import Profile from "./components/Profile";
-// import { UserProvider } from "./contexts/UserContext";
-
 import { useRef } from "react";
 
-// export default function App() {
-//   return (
-//     <UserProvider>
-//       <Profile />
-//     </UserProvider>
-//   );
-// }
-
 export default function App() {
-  const inputRef = useRef(null);
+  const divRef = useRef(null);
+  console.log(divRef.current.clientHeight);
 
   return (
-    <>
-      <input type="text" ref={inputRef} />
-      <button
-        onClick={() => {
-          inputRef.current.focus();
-        }}>
-        Click me to focus the input box
-      </button>
-    </>
+    <div ref={divRef}>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae sunt
+      nesciunt natus tempore sed, distinctio corrupti error impedit dolorum ut!
+      Quis deleniti rerum dolor tempore odit doloribus unde iste doloremque?
+    </div>
   );
 }
