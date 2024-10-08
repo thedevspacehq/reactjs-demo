@@ -1,14 +1,38 @@
-import { useRef } from "react";
+import { useState, useEffect } from "react";
 
 export default function App() {
-  const divRef = useRef(null);
-  console.log(divRef.current.clientHeight);
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchArticles() {
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/posts"
+        );
+        const data = await response.json();
+        setArticles(data);
+        setLoading(false);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    fetchArticles();
+  });
+
+  if (loading) return <div>Loading articles...</div>;
 
   return (
-    <div ref={divRef}>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae sunt
-      nesciunt natus tempore sed, distinctio corrupti error impedit dolorum ut!
-      Quis deleniti rerum dolor tempore odit doloribus unde iste doloremque?
+    <div>
+      <h2>Article List</h2>
+      <ul>
+        {articles.map((article) => (
+          <li key={article.id}>
+            <p>- {article.title}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
