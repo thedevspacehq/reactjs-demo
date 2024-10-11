@@ -154,21 +154,38 @@
 //   );
 // }
 
-import { useRef } from "react";
+// import { useRef } from "react";
+
+// export default function App() {
+//   const count = useRef(0);
+
+//   return (
+//     <div>
+//       <p>{count.current}</p>
+//       <button
+//         onClick={() => {
+//           count.current = count.current + 1;
+//           console.log(count.current);
+//         }}>
+//         Add
+//       </button>
+//     </div>
+//   );
+// }
+
+import { useRef, useEffect } from "react";
 
 export default function App() {
-  const count = useRef(0);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   return (
     <div>
-      <p>{count.current}</p>
-      <button
-        onClick={() => {
-          count.current = count.current + 1;
-          console.log(count.current);
-        }}>
-        Add
-      </button>
+      <p>The input field will be focused immediately after mount.</p>
+      <input ref={inputRef} type="text" />
     </div>
   );
 }
